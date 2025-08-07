@@ -81,7 +81,7 @@ flutter:
   #         style: italic
     - family: Nunito
       fonts:
-        - asset: assets/fonts/Nunito-VariableFont_wght.ttf
+        - asset: assets/fonts/Nunito-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

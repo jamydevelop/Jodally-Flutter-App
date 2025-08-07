@@ -32,7 +32,7 @@ class SplashPage extends StatelessWidget {
                 color: whitePrimary,
                 fontSize: 14,
                 fontStyle: FontStyle.italic,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w400,
               ),
             ),
           ],
