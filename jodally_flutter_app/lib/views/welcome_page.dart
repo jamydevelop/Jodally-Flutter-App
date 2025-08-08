@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
@@ -55,9 +57,23 @@ class _WelcomePageState extends State<WelcomePage> {
                 foregroundColor: whitePrimary,
                 backgroundColor: greenPrimary,
                 onPressed: () {
-                  showDialog(
+                  showGeneralDialog(
                     context: context,
-                    builder: (BuildContext context) => const WelcomeDialog(),
+                    barrierDismissible: true,
+                    barrierLabel: 'WelcomeDialog',
+                    barrierColor: Colors.transparent, // Removes dark overlay
+                    transitionDuration: const Duration(milliseconds: 200),
+                    pageBuilder: (context, animation, secondaryAnimation) {
+                      return BackdropFilter(
+                        filter: ImageFilter.blur(
+                          sigmaX: 4,
+                          sigmaY: 4,
+                        ), // Apply blur
+                        child: Center(
+                          child: WelcomeDialog(), // Your custom dialog widget
+                        ),
+                      );
+                    },
                   );
                 },
                 child: CommonTextLabel(

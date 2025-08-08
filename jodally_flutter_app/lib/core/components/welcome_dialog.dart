@@ -10,25 +10,22 @@ class WelcomeDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
+    return Dialog(
+      insetPadding: const EdgeInsets.symmetric(
+        horizontal: 24,
+      ), // Controls dialog-to-screen spacing
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      contentPadding: const EdgeInsets.symmetric(
-        horizontal: 0,
-        vertical: 0,
-      ), // remove extra padding
-      content: SizedBox(
+      child: SizedBox(
         width: 334,
         height: 145,
         child: Stack(
           children: [
-            // Main content
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const SizedBox(height: 8),
                   CommonTextLabel(
                     textAlign: TextAlign.center,
                     text: 'Choose Your Role',
@@ -59,9 +56,7 @@ class WelcomeDialog extends StatelessWidget {
                           fontSize: fontSizeTitle6,
                           color: whitePrimary,
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
                       const SizedBox(width: 10),
                       CommonButton(
@@ -78,9 +73,7 @@ class WelcomeDialog extends StatelessWidget {
                           fontSize: fontSizeTitle6,
                           color: greenPrimary,
                         ),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                        onPressed: () => Navigator.of(context).pop(),
                       ),
                     ],
                   ),
@@ -88,16 +81,18 @@ class WelcomeDialog extends StatelessWidget {
               ),
             ),
 
-            // Close button (top-right)
+            // Close button
             Positioned(
-              top: 4,
-              right: 4,
+              top: -4,
+              right: -3,
               child: IconButton(
                 icon: Image.asset(
                   Assets.welcomeDialogCloseIcn,
                   scale: 3,
                   fit: BoxFit.fill,
                 ),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
                 splashRadius: 20,
                 onPressed: () => Navigator.of(context).pop(),
               ),
