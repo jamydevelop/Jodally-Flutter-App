@@ -1,6 +1,10 @@
 import 'dart:ui';
 
+//White
 const Color whitePrimary = Color(0xFFFFFFFF);
+
+//Black
+const Color blackPrimary = Color(0xFF020202); //#020202
 
 //Green
 const Color greenPrimary = Color(0xFF2E6F40); //#2E6F40
