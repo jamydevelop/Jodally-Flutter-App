@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 
 class WelcomePage extends StatefulWidget {
@@ -21,7 +22,7 @@ class _WelcomePageState extends State<WelcomePage> {
         body: Center(
           child: Column(
             children: [
-              Image.asset('assets/images/jeepney_welcome_img.png'),
+              Image.asset(Assets.welcomePageJeepneyImg),
               Text(
                 'Jodally',
                 style: TextStyle(

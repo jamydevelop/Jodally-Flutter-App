@@ -80,7 +80,6 @@ flutter:
         - asset: assets/fonts/Poppins-Medium.ttf
         - asset: assets/fonts/Poppins-Regular.ttf
         - asset: assets/fonts/Poppins-SemiBold.ttf
-          style: SemiBold
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
     - family: Nunito
