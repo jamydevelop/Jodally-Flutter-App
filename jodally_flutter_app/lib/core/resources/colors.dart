@@ -6,6 +6,9 @@ const Color whitePrimary = Color(0xFFFFFFFF);
 //Black
 const Color blackPrimary = Color(0xFF020202); //#020202
 
+//Grey
+const Color greyPrimary = Color(0xFF676767); //#676767
+
 //Green
 const Color greenPrimary = Color(0xFF2E6F40); //#2E6F40
 const Color greenSecondary = Color(0xFF39894F); //#39894F
