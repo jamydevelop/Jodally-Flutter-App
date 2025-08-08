@@ -11,6 +11,7 @@ class WelcomeDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
+      backgroundColor: whitePrimary,
       insetPadding: const EdgeInsets.symmetric(
         horizontal: 24,
       ), // Controls dialog-to-screen spacing
