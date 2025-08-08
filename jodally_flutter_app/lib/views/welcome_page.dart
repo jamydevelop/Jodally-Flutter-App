@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
+import 'package:jodally_flutter_app/core/components/welcome_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
@@ -53,7 +54,12 @@ class _WelcomePageState extends State<WelcomePage> {
                 borderRadius: 30,
                 foregroundColor: whitePrimary,
                 backgroundColor: greenPrimary,
-                onPressed: () {},
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) => const WelcomeDialog(),
+                  );
+                },
                 child: CommonTextLabel(
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w600,
