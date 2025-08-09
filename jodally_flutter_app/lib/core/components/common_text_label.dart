@@ -15,7 +15,7 @@ class CommonTextLabel extends StatelessWidget {
   const CommonTextLabel({
     super.key,
     required this.text,
-    this.fontSize = fontSizeTitle4, // Default font size (can be adjusted)
+    this.fontSize = fontSizeTitleSmall, // Default font size (can be adjusted)
     this.fontWeight = FontWeight.bold, // Default font weight
     this.color,
     this.fontFamily,

@@ -1,13 +1,11 @@
 // Spacing
-const double extraSmallSpacing = 4.0;
-const double smallSpacing = 8.0;
-const double normalSpacing = 10.0;
-const double extraNormalSpacing = 12;
-const double regularSpacing = 16.0;
-const double largeSpacing = 24.0;
-const double extraLargeSpacing = 28;
-const double superLargeSpacing = 32.0;
-const double mostLargeSpacing = 64.0;
+const double spacingXS = 4.0; // Extra Small
+const double spacingS = 8.0; // Small
+const double spacingM = 12.0; // Medium
+const double spacingL = 16.0; // Large
+const double spacingXL = 24.0; // Extra Large
+const double spacingXXL = 32.0; // 2x Extra Large
+const double spacingXXXL = 64.0; // 3x Extra Large
 
 //Icon button size
 const double iconButtonSize = 40;
@@ -15,33 +13,33 @@ const double iconButtonSize = 40;
 //Icon size
 const double iconSize = 24.0;
 
-//Font size
-const double fontSizeCaption2 = 11.0;
-const double fontSizeCaption1 = 12.0;
-
+// Typography: Small Text
+const double fontSizeCaption = 11.0; // Formerly: fontSizeCaption2
+const double fontSizeCaptionMedium = 12.0; // Formerly: fontSizeCaption1
 const double fontSizeFootnote = 13.0;
 
+// Typography: Secondary Text
 const double fontSizeSubhead = 15.0;
 const double fontSizeCallout = 16.0;
 const double fontSizeBody = 17.0;
 
-const double fontSizeTitle1 = 10.0;
-const double fontSizeTitle2 = 12.0;
-const double fontSizeTitle3 = 13.0;
-const double fontSizeTitle4 = 14.0;
-const double fontSizeTitle5 = 15.0;
-const double fontSizeTitle6 = 16.0;
-const double fontSizeTitle7 = 17.0;
-const double fontSizeTitle8 = 18.0;
+// Typography: Titles (Smaller variants)
+const double fontSizeTitleSmall = 14.0;
+const double fontSizeTitleMedium = 15.0;
+const double fontSizeTitleLarge = 16.0;
+const double fontSizeTitleExtra = 17.0;
+const double fontSizeTitleExtraLarge = 18.0;
 
-const double fontSizeHeadline2 = 17.0;
-const double fontSizeHeadline1 = 18.0;
+// Typography: Headlines
+const double fontSizeHeadline = 18.0; // Formerly: Headline1
+const double fontSizeHeadlineAlt = 17.0; // Formerly: Headline2
 
-const double bigFontSizeTitle3 = 20.0;
-const double bigFontSizeTitle2 = 22.0;
-const double bigFontSizeTitle1 = 25.0;
-const double bigFontSizeTitle0 = 28.0;
-const double bigFontSizeLargeTitle = 34.0;
+// Typography: Display / Large Titles
+const double fontSizeDisplaySmall = 20.0; // Formerly: bigFontSizeTitle3
+const double fontSizeDisplayMedium = 22.0; // Formerly: bigFontSizeTitle2
+const double fontSizeDisplayLarge = 25.0; // Formerly: bigFontSizeTitle1
+const double fontSizeDisplayXLarge = 28.0; // Formerly: bigFontSizeTitle0
+const double fontSizeDisplayXXLarge = 34.0; // Formerly: bigFontSizeLargeTitle
 
 //Border radius
 const double primaryBorder = 15;

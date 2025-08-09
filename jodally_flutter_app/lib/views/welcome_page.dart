@@ -79,7 +79,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: CommonTextLabel(
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w600,
-                  fontSize: fontSizeTitle4,
+                  fontSize: fontSizeTitleSmall,
                   color: whitePrimary,
                   text: "Sign In",
                 ),
@@ -98,7 +98,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 child: CommonTextLabel(
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w600,
-                  fontSize: fontSizeTitle4,
+                  fontSize: fontSizeTitleSmall,
                   color: greenPrimary,
                   text: "Sign Up",
                 ),

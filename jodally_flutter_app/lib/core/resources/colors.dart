@@ -5,6 +5,7 @@ const Color whitePrimary = Color(0xFFFFFFFF);
 
 //Black
 const Color blackPrimary = Color(0xFF020202); //#020202
+const Color blackSecondary = Color(0xFF292D32); //#292D32
 
 //Grey
 const Color greyPrimary = Color(0xFF676767); //#676767
