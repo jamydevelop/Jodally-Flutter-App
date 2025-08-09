@@ -61,7 +61,7 @@ class _SignInPageState extends State<SignInPage> {
                   fillColor: lightGreyPrimary,
                   hintText: "Enter your email",
                   hintTextStyle: TextStyle(
-                    fontFamily: "Roboto",
+                    fontFamily: "Nunito",
                     fontWeight: FontWeight.w400,
                     fontSize: fontSizeSubhead,
                     color: lightGreySecondary,
@@ -94,13 +94,16 @@ class _SignInPageState extends State<SignInPage> {
                 SizedBox(height: 4),
                 // Password Text Field
                 CommonTextField(
+                  isSecure: true,
+                  hasShowHideTextIcon: true,
+                  maxLines: 1,
                   filled: true,
                   fillColor: lightGreyPrimary,
                   hintText: "Enter your password",
                   hintTextStyle: TextStyle(
-                    fontFamily: "Roboto",
+                    fontFamily: "Nunito",
                     fontWeight: FontWeight.w400,
-                    fontSize: fontSizeSubhead,
+                    fontSize: fontSizeTitleSmall,
                     color: lightGreySecondary,
                   ),
                   prefixIcon: Image.asset(
@@ -113,12 +116,11 @@ class _SignInPageState extends State<SignInPage> {
                     // Hide the on-screen keyboard
                     FocusScope.of(context).unfocus();
                   },
-                  keyboardType: TextInputType.emailAddress,
+                  keyboardType: TextInputType.text,
                   inputBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6.0),
                     borderSide: BorderSide(color: lightGreyPrimary, width: 1),
                   ),
-                  suffixIcon: Icon(Icons.remove_red_eye_outlined),
                 ),
               ],
             ),
