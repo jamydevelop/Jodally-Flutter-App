@@ -8,14 +8,14 @@ import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignInPagePassenger extends StatefulWidget {
+  const SignInPagePassenger({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<SignInPagePassenger> createState() => _SignInPagePassengerState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPagePassengerState extends State<SignInPagePassenger> {
   @override
   Widget build(BuildContext context) {
     return AnnotatedRegion<SystemUiOverlayStyle>(
