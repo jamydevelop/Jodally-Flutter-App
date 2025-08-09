@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
+import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_field.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
@@ -107,7 +108,7 @@ class _SignInPageState extends State<SignInPage> {
                     color: lightGreySecondary,
                   ),
                   prefixIcon: Image.asset(
-                    Assets.smsIcon,
+                    Assets.lockIcon,
                     scale: 3,
                     color: lightGreySecondary,
                   ),
@@ -121,6 +122,44 @@ class _SignInPageState extends State<SignInPage> {
                     borderRadius: BorderRadius.circular(6.0),
                     borderSide: BorderSide(color: lightGreyPrimary, width: 1),
                   ),
+                ),
+                SizedBox(height: 4),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        setState(() {
+                          // Change the color to red when tapped
+                          //textColor = greyPrimary;
+                          //context.go("/forgotpassword");
+                        });
+                      },
+                      child: CommonTextLabel(
+                        fontFamily: "Nunito",
+                        fontWeight: FontWeight.w600,
+                        fontSize: fontSizeTitleSmall, //12px
+                        color:
+                            greenSecondary, // Use the dynamic color based on the state
+                        text: "Forgot Password?",
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 28),
+                CommonButton(
+                  backgroundColor: greenPrimary,
+                  borderRadius: 6,
+                  width: double.infinity,
+                  height: 50,
+                  child: CommonTextLabel(
+                    text: 'Sign In',
+                    fontFamily: 'Poppins',
+                    fontSize: fontSizeTitleLarge,
+                    color: whitePrimary,
+                  ),
+                  //onPressed: () => Navigator.of(context).pop(),
+                  onPressed: () {},
                 ),
               ],
             ),
