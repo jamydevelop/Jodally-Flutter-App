@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
+import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_field.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
 import 'package:jodally_flutter_app/core/resources/app_constants.dart';
@@ -149,6 +150,21 @@ class _SignUpPassengerAndDriverState extends State<SignUpPassengerAndDriver> {
             ),
             const SizedBox(height: 20),
             termsAndPolicy(),
+            const SizedBox(height: 20),
+            CommonButton(
+              backgroundColor: greenPrimary,
+              borderRadius: 6,
+              width: double.infinity,
+              height: 50,
+              child: CommonTextLabel(
+                text: 'Continue',
+                fontFamily: 'Poppins',
+                fontSize: fontSizeTitleLarge,
+                color: whitePrimary,
+              ),
+              //onPressed: () => Navigator.of(context).pop(),
+              onPressed: () {},
+            ),
           ],
         ),
       ),
@@ -163,13 +179,13 @@ class _SignUpPassengerAndDriverState extends State<SignUpPassengerAndDriver> {
         Checkbox(
           activeColor: greenPrimary,
           value: isChecked,
+          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+          visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
           onChanged: (value) {
             setState(() {
               isChecked = value ?? false;
             });
           },
-          materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-          visualDensity: const VisualDensity(horizontal: -4, vertical: -4),
         ),
         const SizedBox(width: 8),
         Expanded(
