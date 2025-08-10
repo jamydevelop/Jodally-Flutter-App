@@ -3,7 +3,6 @@ import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_field.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
-import 'package:jodally_flutter_app/core/resources/app_constants.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
