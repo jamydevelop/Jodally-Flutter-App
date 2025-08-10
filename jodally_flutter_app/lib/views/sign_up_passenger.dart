@@ -189,7 +189,7 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
               fontSize: fontSizeTitleSmall,
               color: blackTertiary,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 4),
             // Province Button
             SizedBox(
               width: double.infinity,
