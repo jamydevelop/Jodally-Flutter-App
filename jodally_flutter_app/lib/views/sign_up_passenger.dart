@@ -41,19 +41,20 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
             ),
             const SizedBox(height: 12),
 
-            // Email Label & Field
+            // First Name Label
             CommonTextLabel(
-              text: 'Email',
+              text: 'First Name',
               fontFamily: 'Nunito',
               fontWeight: FontWeight.w400,
               fontSize: fontSizeTitleSmall,
               color: blackTertiary,
             ),
             const SizedBox(height: 4),
+            // First Name Field
             CommonTextField(
               filled: true,
               fillColor: lightGreyPrimary,
-              hintText: "Enter your email",
+              hintText: 'Enter your first name',
               hintTextStyle: TextStyle(
                 fontFamily: "Nunito",
                 fontWeight: FontWeight.w400,
@@ -74,22 +75,23 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
             ),
             const SizedBox(height: 12),
 
-            // Password Label & Field
+            // Last Name Label
             CommonTextLabel(
-              text: AppConstants.PASSWORD_TITLE,
+              text: 'Last Name',
               fontFamily: 'Nunito',
               fontWeight: FontWeight.w400,
               fontSize: fontSizeTitleSmall,
               color: blackTertiary,
             ),
             const SizedBox(height: 4),
+            // Last Name Field
             CommonTextField(
               isSecure: true,
               hasShowHideTextIcon: true,
               maxLines: 1,
               filled: true,
               fillColor: lightGreyPrimary,
-              hintText: AppConstants.PASSWORD_SUB_TITLE,
+              hintText: 'Enter your last name',
               hintTextStyle: TextStyle(
                 fontFamily: "Nunito",
                 fontWeight: FontWeight.w400,
@@ -110,22 +112,23 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
             ),
             const SizedBox(height: 12),
 
-            // Confirm Password Label & Field
+            // Contact Number Label
             CommonTextLabel(
-              text: 'Confirm Password',
+              text: 'Contact Number',
               fontFamily: 'Nunito',
               fontWeight: FontWeight.w400,
               fontSize: fontSizeTitleSmall,
               color: blackTertiary,
             ),
             const SizedBox(height: 4),
+            // Contact Number Field
             CommonTextField(
               isSecure: true,
               hasShowHideTextIcon: true,
               maxLines: 1,
               filled: true,
               fillColor: lightGreyPrimary,
-              hintText: "Enter your confirm password",
+              hintText: 'Enter your contact number',
               hintTextStyle: TextStyle(
                 fontFamily: "Nunito",
                 fontWeight: FontWeight.w400,
@@ -144,6 +147,81 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                 borderSide: BorderSide(color: lightGreyPrimary, width: 1),
               ),
             ),
+            const SizedBox(height: 12),
+            // House No. / Street Label
+            CommonTextLabel(
+              text: 'House No. / Street',
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.w400,
+              fontSize: fontSizeTitleSmall,
+              color: blackTertiary,
+            ),
+            const SizedBox(height: 4),
+            // First Name Field
+            CommonTextField(
+              filled: true,
+              fillColor: lightGreyPrimary,
+              hintText: 'Enter your house no. / street',
+              hintTextStyle: TextStyle(
+                fontFamily: "Nunito",
+                fontWeight: FontWeight.w400,
+                fontSize: fontSizeSubhead,
+                color: lightGreySecondary,
+              ),
+              prefixIcon: Image.asset(
+                Assets.smsIcon,
+                scale: 3,
+                color: lightGreySecondary,
+              ),
+              onFieldSubmitted: (_) => FocusScope.of(context).unfocus(),
+              keyboardType: TextInputType.emailAddress,
+              inputBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(6.0),
+                borderSide: BorderSide(color: lightGreyPrimary, width: 1),
+              ),
+            ),
+            const SizedBox(height: 12),
+            // Province Label
+            CommonTextLabel(
+              text: 'Province',
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.w400,
+              fontSize: fontSizeTitleSmall,
+              color: blackTertiary,
+            ),
+            const SizedBox(height: 12),
+            // Province Button
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {},
+                style: TextButton.styleFrom(
+                  backgroundColor: lightGreyPrimary,
+                  foregroundColor: lightGreySecondary,
+                  padding: EdgeInsets.symmetric(
+                    vertical: 16,
+                  ), // Vertical padding only
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                  alignment: Alignment.centerLeft, // Aligns Row to the left
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 12,
+                  ), // Left-right padding
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Image.asset(Assets.locationIcon, scale: 3),
+                      SizedBox(width: 12), // Spacing between icon and text
+                      Text('Select province'),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
             const SizedBox(height: 20),
             CommonButton(
               backgroundColor: greenPrimary,

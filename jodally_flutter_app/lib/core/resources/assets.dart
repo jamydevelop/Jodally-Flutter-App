@@ -9,4 +9,7 @@ class Assets {
   static const welcomeDialogCloseIcn = '$iconsPath/close_circle_icon.png';
   static const smsIcon = '$iconsPath/sms_icon.png';
   static const lockIcon = '$iconsPath/lock_icon.png';
+  static const locationIcon = '$iconsPath/location_icon.png';
+
+  //location_icon.png
 }
