@@ -27,14 +27,14 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             CommonTextLabel(
-              text: AppConstants.SIGN_UP_TITLE,
+              text: 'Fill Up Your Information',
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
               fontSize: 24,
             ),
             const SizedBox(height: 12),
             CommonTextLabel(
-              text: AppConstants.SIGN_UP_DESC,
+              text: 'Tell us about yourself',
               fontFamily: 'Nunito',
               fontWeight: FontWeight.w400,
               fontSize: fontSizeTitleSmall,
