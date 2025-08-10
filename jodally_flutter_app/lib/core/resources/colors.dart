@@ -14,6 +14,7 @@ const Color lightGreySecondary = Color(0xFFDCDCDC); //#DCDCDC
 
 //Grey
 const Color greyPrimary = Color(0xFF676767); //#676767
+const Color greySecondary = Color(0xFF494949); //#494949
 
 //Green
 const Color greenPrimary = Color(0xFF2E6F40); //#2E6F40
