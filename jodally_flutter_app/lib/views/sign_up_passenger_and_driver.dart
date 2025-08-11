@@ -228,12 +228,10 @@ class _SignUpPassengerAndDriverState extends State<SignUpPassengerAndDriver> {
   }
 
   void _onTermsTapped() {
-    print('Terms and Conditions tapped');
-    // TODO: Navigate to terms screen or launch URL
+    debugPrint('Terms and Conditions tapped');
   }
 
   void _onPrivacyTapped() {
-    print('Privacy Policy tapped');
-    // TODO: Navigate to privacy screen or launch URL
+    debugPrint('Privacy Policy tapped');
   }
 }

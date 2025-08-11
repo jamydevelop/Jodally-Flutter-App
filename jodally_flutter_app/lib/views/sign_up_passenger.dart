@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
