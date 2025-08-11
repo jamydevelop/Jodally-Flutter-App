@@ -3,7 +3,9 @@ import 'package:jodally_flutter_app/core/components/bullet_list.dart';
 import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
+import 'package:jodally_flutter_app/core/components/dashed_outline_button.dart';
 import 'package:jodally_flutter_app/core/resources/app_constants.dart';
+import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
@@ -47,13 +49,29 @@ class _SignUpDriverLicenseState extends State<SignUpDriverLicense> {
                 fontSize: fontSizeTitleSmall,
               ),
               SizedBox(height: 12),
+              DashedOutlineButton(
+                label: 'Upload',
+                onPressed: () {
+                  // Handle button press
+                },
+              ),
+
+              SizedBox(height: 12),
               CommonTextLabel(
                 text: 'Attach OR/CR',
                 fontFamily: 'Nunito',
                 fontWeight: FontWeight.w400,
                 fontSize: fontSizeTitleSmall,
               ),
-              const SizedBox(height: 24),
+              SizedBox(height: 12),
+              DashedOutlineButton(
+                label: 'Upload',
+                onPressed: () {
+                  // Handle button press
+                },
+              ),
+              const SizedBox(height: 30),
+              //Continue Button
               CommonButton(
                 backgroundColor: greenPrimary,
                 borderRadius: 6,

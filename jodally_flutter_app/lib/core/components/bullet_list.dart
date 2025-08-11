@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
 class BulletList extends StatelessWidget {
@@ -16,7 +17,7 @@ class BulletList extends StatelessWidget {
           return Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('\u2022', style: TextStyle(fontSize: 16, height: 1.55)),
+              Text('\u2022', style: TextStyle(fontSize: 14, height: 1.55)),
               SizedBox(width: 5),
               Expanded(
                 child: Text(
@@ -27,6 +28,7 @@ class BulletList extends StatelessWidget {
                     fontFamily: 'Nunito',
                     fontWeight: FontWeight.w400,
                     fontSize: fontSizeTitleSmall,
+                    color: greyPrimary,
                   ),
                 ),
               ),
