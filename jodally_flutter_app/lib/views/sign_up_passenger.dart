@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
 import 'package:jodally_flutter_app/core/components/common_button.dart';
@@ -53,10 +55,10 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                         decoration: BoxDecoration(
                           color: greySecondary,
                           shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage(Assets.sampleProfileImg),
-                            fit: BoxFit.cover,
-                          ),
+                          // image: DecorationImage(
+                          //   image: AssetImage(Assets.sampleProfileImg),
+                          //   fit: BoxFit.cover,
+                          // ),
                         ),
                       ),
                       Positioned(
@@ -211,7 +213,9 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('<<<<<<<<<<<<<< Select Province >>>>>>>>>>>>>>');
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,
@@ -252,7 +256,11 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint(
+                      '<<<<<<<< Select City/Municipality >>>>>>>>>>>>',
+                    );
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,
@@ -293,7 +301,9 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('<<<<<<<<<<<<<< Select Barangay >>>>>>>>>>>>>>');
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,
