@@ -211,7 +211,9 @@ class _SignUpDriverState extends State<SignUpDriver> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('<<<<<<<<<<<<<< Select Province >>>>>>>>>>>>>>');
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,
@@ -252,7 +254,9 @@ class _SignUpDriverState extends State<SignUpDriver> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('<<<<<<<< Select City/Municipality >>>>>>>>>>>');
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,
@@ -293,7 +297,9 @@ class _SignUpDriverState extends State<SignUpDriver> {
               SizedBox(
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    debugPrint('<<<<<<<<<<<<<< Select Barangay >>>>>>>>>>>>>>');
+                  },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
                     foregroundColor: lightGreySecondary,

@@ -255,9 +255,7 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
-                    debugPrint(
-                      '<<<<<<<< Select City/Municipality >>>>>>>>>>>>',
-                    );
+                    debugPrint('<<<<<<<< Select City/Municipality >>>>>>>>>>>');
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: lightGreyPrimary,
