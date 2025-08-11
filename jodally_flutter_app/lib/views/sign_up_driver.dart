@@ -53,10 +53,10 @@ class _SignUpDriverState extends State<SignUpDriver> {
                         decoration: BoxDecoration(
                           color: greySecondary,
                           shape: BoxShape.circle,
-                          image: DecorationImage(
-                            image: AssetImage(Assets.sampleProfileImg),
-                            fit: BoxFit.cover,
-                          ),
+                          // image: DecorationImage(
+                          //   image: AssetImage(Assets.sampleProfileImg),
+                          //   fit: BoxFit.cover,
+                          // ),
                         ),
                       ),
                       Positioned(
