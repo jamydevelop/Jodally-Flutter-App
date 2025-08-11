@@ -23,6 +23,7 @@ class _SignUpDriverJeepneyInformationState
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               CommonTextLabel(
                 text: 'Jeepney Information',
