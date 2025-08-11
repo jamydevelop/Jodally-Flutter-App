@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/views/sign_up_driver.dart';
 import 'package:jodally_flutter_app/views/sign_up_passenger.dart';
 
 void main() {
@@ -17,7 +16,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // ),
-      home: SignUpDriver(),
+      home: SignUpPassenger(),
     );
   }
 }
