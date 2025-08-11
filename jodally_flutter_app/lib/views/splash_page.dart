@@ -13,7 +13,7 @@ class SplashPage extends StatelessWidget {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-        backgroundColor: greenSecondary,
+        backgroundColor: greenQuinary,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
