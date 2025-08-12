@@ -12,6 +12,7 @@ class Assets {
   static const lockIcon = '$iconsPath/lock_icon.png';
   static const locationIcon = '$iconsPath/location_icon.png';
   static const galleryIcon = '$iconsPath/gallery_icon.png';
+  static const cameraIcon = '$iconsPath/camera_icon.png';
 
   //location_icon.png
 }
