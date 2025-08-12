@@ -72,9 +72,10 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                           child: IconButton(
                             icon: Image.asset(Assets.galleryIcon, scale: 2),
                             padding: EdgeInsets.zero,
-                            onPressed: () {
-                              // Your onPressed logic
-                            },
+                            onPressed: () => showModalBottomSheet(
+                              context: context,
+                              builder: (context) => buildSheet(),
+                            ),
                           ),
                           //Image.asset(Assets.galleryIcon, scale: 2),
                           // IconButton(
@@ -374,5 +375,9 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
         ),
       ),
     );
+  }
+
+  Widget buildSheet() {
+    return Column();
   }
 }
