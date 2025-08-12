@@ -11,10 +11,7 @@ class Assets {
   static const smsIcon = '$iconsPath/sms_icon.png';
   static const lockIcon = '$iconsPath/lock_icon.png';
   static const locationIcon = '$iconsPath/location_icon.png';
-  static const profileGalleryIcon = '$iconsPath/profile_gallery_icon.png';
   static const galleryIcon = '$iconsPath/gallery_icon.png';
-  static const cameraIcon = '$iconsPath/camera_icon.png';
-  static const houseIcon = '$iconsPath/house_icon.png';
 
   //location_icon.png
 }

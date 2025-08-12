@@ -7,14 +7,14 @@ import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
-class SignUpPassenger extends StatefulWidget {
-  const SignUpPassenger({super.key});
+class SignUpDriver extends StatefulWidget {
+  const SignUpDriver({super.key});
 
   @override
-  State<SignUpPassenger> createState() => _SignUpPassengerState();
+  State<SignUpDriver> createState() => _SignUpDriverState();
 }
 
-class _SignUpPassengerState extends State<SignUpPassenger> {
+class _SignUpDriverState extends State<SignUpDriver> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
