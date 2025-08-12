@@ -6,12 +6,12 @@ import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 class GlobalSelectButton extends StatefulWidget {
   final String title;
   final String hintText;
-  final VoidCallback? function;
+  final VoidCallback onPressed;
   final String iconPath;
   const GlobalSelectButton({
     super.key,
     required this.title,
-    this.function,
+    required this.onPressed,
     required this.iconPath,
     required this.hintText,
   });
@@ -39,7 +39,7 @@ class _GlobalSelectButtonState extends State<GlobalSelectButton> {
         SizedBox(
           width: double.infinity,
           child: TextButton(
-            onPressed: widget.function,
+            onPressed: widget.onPressed,
             style: TextButton.styleFrom(
               backgroundColor: lightGreyPrimary,
               foregroundColor: lightGreySecondary,

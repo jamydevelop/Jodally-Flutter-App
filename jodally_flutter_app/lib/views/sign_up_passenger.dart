@@ -146,6 +146,7 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                     title: 'Province',
                     iconPath: Assets.locationIcon,
                     hintText: 'Select your province',
+                    onPressed: () {},
                   ),
                   const SizedBox(height: 8),
                   // City / Municipality Button
@@ -153,6 +154,7 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                     title: 'City / Municipality',
                     iconPath: Assets.locationIcon,
                     hintText: 'Select your province',
+                    onPressed: () {},
                   ),
                   const SizedBox(height: 8),
                   // Barangay Button
@@ -160,6 +162,7 @@ class _SignUpPassengerState extends State<SignUpPassenger> {
                     title: 'Barangay',
                     iconPath: Assets.locationIcon,
                     hintText: 'Select barangay',
+                    onPressed: () {},
                   ),
                   const SizedBox(height: 8),
                   // House No. / Street Field
