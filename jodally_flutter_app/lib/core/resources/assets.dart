@@ -5,6 +5,7 @@ class Assets {
   // I M A G E S
   static const welcomePageJeepneyImg = '$imagesPath/jeepney_welcome_img.png';
   static const sampleProfileImg = "$imagesPath/sampleProfileImg.png";
+  static const varificationImg = "$imagesPath/verification_img.png";
 
   // I C O N S
   static const welcomeDialogCloseIcn = '$iconsPath/close_circle_icon.png';
