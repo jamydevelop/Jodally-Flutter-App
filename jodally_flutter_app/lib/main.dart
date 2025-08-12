@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/views/welcome_page.dart';
+import 'package:jodally_flutter_app/views/verification_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // ),
-      home: WelcomePage(),
+      home: VerificationPage(),
     );
   }
 }
