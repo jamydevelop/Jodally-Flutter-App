@@ -16,6 +16,15 @@ class Assets {
   static const galleryIcon = '$iconsPath/gallery_icon.png';
   static const cameraIcon = '$iconsPath/camera_icon.png';
   static const houseIcon = '$iconsPath/house_icon.png';
+  //----Bottom Navigation Bar
+  // OUTLINE
+  static const bnbHomeOutline = '$iconsPath/bnb_home_icon.png';
+  static const bnbActivityOutline = '$iconsPath/bnb_activity_icon.png';
+  static const bnbProfileOutline = '$iconsPath/bnb_profile_icon.png';
+  //FILLED
+  static const bnbHomeFilled = '$iconsPath/bnb_home_filled_icon.png';
+  static const bnbActivityFilled = '$iconsPath/bnb_activity_filled_icon.png';
+  static const bnbProfileFilled = '$iconsPath/bnb_profile_filled_icon.png';
 
   //location_icon.png
 }
