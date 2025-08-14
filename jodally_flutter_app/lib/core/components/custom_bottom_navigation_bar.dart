@@ -22,7 +22,11 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
     });
   }
 
-  final List<Widget> _pages = [HomePage(), ActivityPage(), ProfilePage()];
+  final List<Widget> _pages = [
+    Center(child: HomePage()),
+    Center(child: ActivityPage()),
+    Center(child: ProfilePage()),
+  ];
 
   @override
   Widget build(BuildContext context) {
