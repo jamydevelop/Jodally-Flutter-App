@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/core/components/common_back_app_bar.dart';
-import 'package:jodally_flutter_app/core/components/common_text_label.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
+import 'package:jodally_flutter_app/views/activity_page.dart';
+import 'package:jodally_flutter_app/views/home_page.dart';
+import 'package:jodally_flutter_app/views/profile_page.dart';
 
-class BottomNavigationBarWidget extends StatefulWidget {
-  const BottomNavigationBarWidget({super.key});
+class CustomBottomNavigationBar extends StatefulWidget {
+  const CustomBottomNavigationBar({super.key});
 
   @override
-  State<BottomNavigationBarWidget> createState() =>
-      _BottomNavigationBarWidgetState();
+  State<CustomBottomNavigationBar> createState() =>
+      _CustomBottomNavigationBarState();
 }
 
-class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
+class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   int _selectedIndex = 0;
 
   void _navigateBottomBar(int index) {
@@ -21,18 +22,12 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
     });
   }
 
+  final List<Widget> _pages = [HomePage(), ActivityPage(), ProfilePage()];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: whitePrimary,
-      appBar: CommonBackAppbar(onTap: () {}, textTitle: 'Bottom Nav Bar'),
-      body: Center(
-        child: CommonTextLabel(
-          text: 'Sample Page',
-          fontWeight: FontWeight.w600,
-          fontSize: 50,
-        ),
-      ),
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _navigateBottomBar,
