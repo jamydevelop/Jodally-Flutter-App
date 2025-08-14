@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/views/verification_page.dart';
+import 'package:jodally_flutter_app/views/sign_in_forgot_password.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // ),
-      home: VerificationPage(),
+      home: SignInForgotPassword(),
     );
   }
 }
