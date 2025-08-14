@@ -65,7 +65,7 @@ class _SignUpDriverState extends State<SignUpDriver> {
                     text: 'Fill Up Your Information',
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.w600,
-                    fontSize: 24,
+                    fontSize: fontSizeDisplayMediumLarge,
                   ),
                   const SizedBox(height: 12),
                   CommonTextLabel(

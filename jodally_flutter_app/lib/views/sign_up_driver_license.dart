@@ -31,7 +31,7 @@ class _SignUpDriverLicenseState extends State<SignUpDriverLicense> {
                 text: 'Driver’s License',
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w600,
-                fontSize: 24,
+                fontSize: fontSizeDisplayMediumLarge,
               ),
               BulletList(
                 strings: [
