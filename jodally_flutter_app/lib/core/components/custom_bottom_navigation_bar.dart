@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/views/activity_page.dart';
@@ -30,28 +31,34 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: _navigateBottomBar,
-        selectedItemColor: greenPrimary,
-        unselectedItemColor: Colors.grey,
-        selectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.w600,
-          fontFamily: 'Poppins',
-          fontSize: 12,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle(
+        systemNavigationBarIconBrightness: Brightness.dark,
+        statusBarColor: Colors.transparent,
+      ),
+      child: Scaffold(
+        body: _pages[_selectedIndex],
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _navigateBottomBar,
+          selectedItemColor: greenPrimary,
+          unselectedItemColor: Colors.grey,
+          selectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Poppins',
+            fontSize: 12,
+          ),
+          unselectedLabelStyle: const TextStyle(
+            fontWeight: FontWeight.w400,
+            fontFamily: 'Poppins',
+            fontSize: 12,
+          ),
+          items: [
+            BottomNavigationBarItem(icon: _buildIcon(0), label: 'Home'),
+            BottomNavigationBarItem(icon: _buildIcon(1), label: 'Activity'),
+            BottomNavigationBarItem(icon: _buildIcon(2), label: 'Profile'),
+          ],
         ),
-        unselectedLabelStyle: const TextStyle(
-          fontWeight: FontWeight.w400,
-          fontFamily: 'Poppins',
-          fontSize: 12,
-        ),
-        items: [
-          BottomNavigationBarItem(icon: _buildIcon(0), label: 'Home'),
-          BottomNavigationBarItem(icon: _buildIcon(1), label: 'Activity'),
-          BottomNavigationBarItem(icon: _buildIcon(2), label: 'Profile'),
-        ],
       ),
     );
   }
