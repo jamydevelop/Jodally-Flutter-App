@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class HomePassengerPage extends StatefulWidget {
+  const HomePassengerPage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<HomePassengerPage> createState() => _HomePassengerPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePassengerPageState extends State<HomePassengerPage> {
   @override
   Widget build(BuildContext context) {
     return Center(

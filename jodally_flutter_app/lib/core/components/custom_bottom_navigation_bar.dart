@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/views/activity_page.dart';
-import 'package:jodally_flutter_app/views/home_page.dart';
+import 'package:jodally_flutter_app/views/home_passenger_page.dart';
 import 'package:jodally_flutter_app/views/profile_page.dart';
 
 class CustomBottomNavigationBar extends StatefulWidget {
@@ -24,7 +24,7 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   }
 
   final List<Widget> _pages = [
-    Center(child: HomePage()),
+    Center(child: HomePassengerPage()),
     Center(child: ActivityPage()),
     Center(child: ProfilePage()),
   ];
