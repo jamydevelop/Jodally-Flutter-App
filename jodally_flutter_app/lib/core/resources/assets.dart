@@ -18,9 +18,9 @@ class Assets {
   static const houseIcon = '$iconsPath/house_icon.png';
   //----Bottom Navigation Bar
   // OUTLINE
-  static const bnbHomeOutline = '$iconsPath/bnb_home_icon.png';
-  static const bnbActivityOutline = '$iconsPath/bnb_activity_icon.png';
-  static const bnbProfileOutline = '$iconsPath/bnb_profile_icon.png';
+  static const bnbHomeOutline = '$iconsPath/bnb_home_outline_icon.png';
+  static const bnbActivityOutline = '$iconsPath/bnb_activity_outline_icon.png';
+  static const bnbProfileOutline = '$iconsPath/bnb_profile_outline_icon.png';
   //FILLED
   static const bnbHomeFilled = '$iconsPath/bnb_home_filled_icon.png';
   static const bnbActivityFilled = '$iconsPath/bnb_activity_filled_icon.png';
