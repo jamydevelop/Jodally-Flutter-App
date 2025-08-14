@@ -38,8 +38,16 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
         onTap: _navigateBottomBar,
         selectedItemColor: greenPrimary,
         unselectedItemColor: Colors.grey,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
-        unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.normal),
+        selectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w600,
+          fontFamily: 'Poppins',
+          fontSize: 12,
+        ),
+        unselectedLabelStyle: const TextStyle(
+          fontWeight: FontWeight.w400,
+          fontFamily: 'Poppins',
+          fontSize: 12,
+        ),
         items: [
           BottomNavigationBarItem(icon: _buildIcon(0), label: 'Home'),
           BottomNavigationBarItem(icon: _buildIcon(1), label: 'Activity'),
