@@ -25,6 +25,7 @@ class Assets {
   static const bnbHomeFilled = '$iconsPath/bnb_home_filled_icon.png';
   static const bnbActivityFilled = '$iconsPath/bnb_activity_filled_icon.png';
   static const bnbProfileFilled = '$iconsPath/bnb_profile_filled_icon.png';
-
-  //location_icon.png
+  // ---- Google Map Screen Icons
+  static const gpsIcon = '$iconsPath/gps_icon.png';
+  static const up_arrows_icon = '$iconsPath/up_arrows_icon.png';
 }

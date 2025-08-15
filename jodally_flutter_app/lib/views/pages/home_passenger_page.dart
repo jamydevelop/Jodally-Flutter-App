@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jodally_flutter_app/core/resources/assets.dart';
+import 'package:jodally_flutter_app/core/resources/colors.dart';
 
 class HomePassengerPage extends StatefulWidget {
   const HomePassengerPage({super.key});
@@ -11,25 +13,20 @@ class HomePassengerPage extends StatefulWidget {
 
 class _HomePassengerPageState extends State<HomePassengerPage> {
   LatLng? _currentPosition;
-
   late GoogleMapController _mapController;
 
   @override
   void initState() {
-    _determinePosition();
     super.initState();
+    _determinePosition();
   }
 
   void _determinePosition() async {
     bool serviceEnabled;
     LocationPermission permission;
 
-    // Test if location services are enabled.
     serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
-      // Location services are not enabled don't continue
-      // accessing the position and request users of the
-      // App to enable the location services.
       return Future.error('Location services are disabled.');
     }
 
@@ -37,23 +34,17 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
       if (permission == LocationPermission.denied) {
-        // Permissions are denied, next time you could try
-        // requesting permissions again (this is also where
-        // Android's shouldShowRequestPermissionRationale
-        // returned true. According to Android guidelines
-        // your App should show an explanatory UI now.
         return Future.error('Location permissions are denied');
       }
     }
 
     if (permission == LocationPermission.deniedForever) {
-      // Permissions are denied forever, handle appropriately.
       return Future.error(
         'Location permissions are permanently denied, we cannot request permissions.',
       );
     }
 
-    final LocationSettings locationSettings = LocationSettings(
+    final locationSettings = LocationSettings(
       accuracy: LocationAccuracy.high,
       distanceFilter: 100,
     );
@@ -62,13 +53,13 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
       locationSettings: locationSettings,
     );
 
-    final latlng = LatLng(position.latitude, position.longitude);
-    // Trigger to rebuild the UI
+    final latLng = LatLng(position.latitude, position.longitude);
+
     setState(() {
-      _currentPosition = latlng;
+      _currentPosition = latLng;
     });
 
-    if (_currentPosition != null) {
+    if (_mapController != null) {
       _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
     }
   }
@@ -76,7 +67,6 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
   void _onMapController(GoogleMapController controller) {
     _mapController = controller;
 
-    //move map camera to current location
     if (_currentPosition != null) {
       _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
     }
@@ -84,18 +74,96 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: GoogleMap(
-        onMapCreated: _onMapController,
-        initialCameraPosition: CameraPosition(
-          target:
-              _currentPosition ??
-              LatLng(37.43296265331129, -122.08832357078792),
-          //tilt: 59.440717697143555,
-          zoom: 19.151926040649414,
-        ),
-        myLocationEnabled: true,
-        myLocationButtonEnabled: true,
+    return Scaffold(
+      body: Stack(
+        children: [
+          // Google Map
+          GoogleMap(
+            onMapCreated: _onMapController,
+            initialCameraPosition: CameraPosition(
+              target:
+                  _currentPosition ??
+                  const LatLng(37.43296265331129, -122.08832357078792),
+              zoom: 10.151926040649414,
+            ),
+            myLocationEnabled: true,
+            // myLocationButtonEnabled: true,
+          ),
+
+          // Top buttons
+          Positioned(
+            top: MediaQuery.of(context).padding.top + 16,
+            left: 16,
+            right: 16,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  width: 40, // adjust width
+                  height: 40, // adjust height
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    onPressed: () {},
+                    padding: EdgeInsets.zero, // removes default padding
+                    iconSize: 20, // you can also try adjusting this
+                    icon: Image.asset(
+                      Assets.up_arrows_icon,
+                      scale: 4, // increase scale to make image smaller
+                      color: greenPrimary,
+                    ),
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 40,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black26,
+                        blurRadius: 4,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
+                  ),
+                  child: IconButton(
+                    onPressed: () {
+                      if (_currentPosition != null) {
+                        _mapController.animateCamera(
+                          CameraUpdate.newCameraPosition(
+                            CameraPosition(
+                              target: _currentPosition!,
+                              zoom: 17.0, // You can change this value as needed
+                            ),
+                          ),
+                        );
+                      }
+                    },
+
+                    padding: EdgeInsets.zero,
+                    iconSize: 20,
+                    icon: Image.asset(
+                      Assets.gpsIcon,
+                      scale: 4,
+                      color: greenPrimary,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
