@@ -12,6 +12,8 @@ class HomePassengerPage extends StatefulWidget {
 class _HomePassengerPageState extends State<HomePassengerPage> {
   LatLng? _currentPosition;
 
+  late GoogleMapController _mapController;
+
   @override
   void initState() {
     _determinePosition();
@@ -65,12 +67,26 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
     setState(() {
       _currentPosition = latlng;
     });
+
+    if (_currentPosition != null) {
+      _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
+    }
+  }
+
+  void _onMapController(GoogleMapController controller) {
+    _mapController = controller;
+
+    //move map camera to current location
+    if (_currentPosition != null) {
+      _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: GoogleMap(
+        onMapCreated: _onMapController,
         initialCameraPosition: CameraPosition(
           target:
               _currentPosition ??
