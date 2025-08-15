@@ -59,9 +59,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
       _currentPosition = latLng;
     });
 
-    if (_mapController != null) {
-      _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
-    }
+    _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
   }
 
   void _onMapController(GoogleMapController controller) {
