@@ -93,6 +93,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
               zoom: 10.151926040649414,
             ),
             myLocationEnabled: true,
+            myLocationButtonEnabled: false,
           ),
 
           // Top buttons
