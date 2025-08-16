@@ -35,7 +35,7 @@ class _WelcomePageState extends State<WelcomePage> {
                 style: TextStyle(
                   fontFamily: "Poppins",
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: fontSizeDisplayMediumLarge,
                   color: blackPrimary,
                 ),
               ),

@@ -36,7 +36,7 @@ class _SignInPagePassengerState extends State<SignInPagePassenger> {
                   text: 'Sign In',
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
-                  fontSize: 24,
+                  fontSize: fontSizeDisplayMediumLarge,
                 ),
                 SizedBox(height: 12),
                 CommonTextLabel(

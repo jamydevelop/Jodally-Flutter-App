@@ -37,6 +37,7 @@ const double fontSizeHeadlineAlt = 17.0; // Formerly: Headline2
 // Typography: Display / Large Titles
 const double fontSizeDisplaySmall = 20.0; // Formerly: bigFontSizeTitle3
 const double fontSizeDisplayMedium = 22.0; // Formerly: bigFontSizeTitle2
+const double fontSizeDisplayMediumLarge = 24.0; // New addition
 const double fontSizeDisplayLarge = 25.0; // Formerly: bigFontSizeTitle1
 const double fontSizeDisplayXLarge = 28.0; // Formerly: bigFontSizeTitle0
 const double fontSizeDisplayXXLarge = 34.0; // Formerly: bigFontSizeLargeTitle

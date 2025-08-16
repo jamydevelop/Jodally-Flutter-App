@@ -34,7 +34,7 @@ class _SignUpPassengerAndDriverState extends State<SignUpPassengerAndDriver> {
               text: AppConstants.SIGN_UP_TITLE,
               fontFamily: 'Poppins',
               fontWeight: FontWeight.w600,
-              fontSize: 24,
+              fontSize: fontSizeDisplayMediumLarge,
             ),
             const SizedBox(height: 12),
             CommonTextLabel(
