@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jodally_flutter_app/core/components/map_type_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 
@@ -13,6 +16,10 @@ class HomePassengerPage extends StatefulWidget {
 
 class _HomePassengerPageState extends State<HomePassengerPage> {
   LatLng? _currentPosition;
+
+  // Initialize with default MapType
+  MapType _currentMapType = MapType.normal;
+
   late GoogleMapController _mapController;
 
   @override
@@ -77,6 +84,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
         children: [
           // Google Map
           GoogleMap(
+            mapType: _currentMapType,
             onMapCreated: _onMapController,
             initialCameraPosition: CameraPosition(
               target:
@@ -85,7 +93,6 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
               zoom: 10.151926040649414,
             ),
             myLocationEnabled: true,
-            // myLocationButtonEnabled: true,
           ),
 
           // Top buttons
@@ -96,9 +103,10 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                // Map Type Button
                 Container(
-                  width: 40, // adjust width
-                  height: 40, // adjust height
+                  width: 40,
+                  height: 40,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     shape: BoxShape.circle,
@@ -111,16 +119,41 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
                     ],
                   ),
                   child: IconButton(
-                    onPressed: () {},
-                    padding: EdgeInsets.zero, // removes default padding
-                    iconSize: 20, // you can also try adjusting this
+                    onPressed: () {
+                      showGeneralDialog(
+                        context: context,
+                        barrierDismissible: true,
+                        barrierLabel: 'MapTypeDialog',
+                        barrierColor: Colors.transparent,
+                        transitionDuration: const Duration(milliseconds: 200),
+                        pageBuilder: (context, animation, secondaryAnimation) {
+                          return BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                            child: Center(
+                              child: MapTypeDialog(
+                                selectedMapType: _currentMapType,
+                                onMapTypeSelected: (MapType selectedType) {
+                                  setState(() {
+                                    _currentMapType = selectedType;
+                                  });
+                                },
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
+                    padding: EdgeInsets.zero,
+                    iconSize: 20,
                     icon: Image.asset(
                       Assets.up_arrows_icon,
-                      scale: 4, // increase scale to make image smaller
+                      scale: 4,
                       color: greenPrimary,
                     ),
                   ),
                 ),
+
+                // Recenter GPS Button
                 Container(
                   width: 40,
                   height: 40,
@@ -142,13 +175,12 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
                           CameraUpdate.newCameraPosition(
                             CameraPosition(
                               target: _currentPosition!,
-                              zoom: 17.0, // You can change this value as needed
+                              zoom: 17.0,
                             ),
                           ),
                         );
                       }
                     },
-
                     padding: EdgeInsets.zero,
                     iconSize: 20,
                     icon: Image.asset(
