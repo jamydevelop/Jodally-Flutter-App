@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/core/components/custom_bottom_navigation_bar.dart';
 import 'package:jodally_flutter_app/core/components/home_passenger_book_details_dialog.dart';
 
 void main() {
