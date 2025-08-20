@@ -24,10 +24,18 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('data'),
-                    Text('data'),
-                    Text('data'),
-                    Text('data'),
+                    Stack(
+                      clipBehavior:
+                          Clip.none, // <-- This allows children to overflow
+                      children: [
+                        Image.asset(Assets.jeepneyImg),
+                        Positioned(
+                          bottom: -10, // <-- Negative value pushes it outside
+                          right: -10, // <-- Same here
+                          child: Image.asset(Assets.driverImg),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
