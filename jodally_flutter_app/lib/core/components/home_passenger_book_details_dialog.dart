@@ -10,130 +10,126 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: greySecondary,
-      body: Dialog(
-        backgroundColor: whitePrimary,
-        insetPadding: EdgeInsets.symmetric(horizontal: 14),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        child: SizedBox(
-          width: 342,
-          height: 182,
-          child: Stack(
-            children: [
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8, vertical: 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        //JEEPNEY & DRIVER PICTURE
-                        Stack(
-                          clipBehavior:
-                              Clip.none, // <-- This allows children to overflow
-                          children: [
-                            Image.asset(Assets.jeepneyImg),
-                            Positioned(
-                              bottom:
-                                  -10, // <-- Negative value pushes it outside
-                              right: -10, // <-- Same here
-                              child: Image.asset(Assets.driverImg),
-                            ),
-                          ],
-                        ),
-                        SizedBox(width: 20),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //DRIVER'S NAME
-                            CommonTextLabel(
-                              text: 'Kevin Nuqui',
-                              fontFamily: 'Poppins',
-                              fontWeight: FontWeight.w500,
-                              fontSize: fontSizeTitleSmall,
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(Assets.starIcon),
-                                SizedBox(width: 8),
-                                //DRIVER'S RATE
-                                CommonTextLabel(
-                                  text: '4.6',
-                                  fontFamily: 'Nunito',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: fontSizeCaptionMedium,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(Assets.clockIcon, scale: 3),
-                                SizedBox(width: 8),
-                                //DRIVER'S MINUTES AWAY
-                                CommonTextLabel(
-                                  text: '2 minutes away ',
-                                  fontFamily: 'Nunito',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: fontSizeCaptionMedium,
-                                ),
-                              ],
-                            ),
-                            Row(
-                              children: [
-                                Image.asset(Assets.waitingIcon, scale: 3),
-                                SizedBox(width: 8),
-                                //DRIVER'S SEATS & ROUTE
-                                CommonTextLabel(
-                                  text: '2 seats available ~ Going to San Jose',
-                                  fontFamily: 'Nunito',
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: fontSizeCaptionMedium,
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 30),
-                    SizedBox(
-                      width: double.infinity,
-                      //BUTTON ------------------------------
-                      child: CommonButton(
-                        height: 50,
-                        backgroundColor: greenPrimary,
-                        child: CommonTextLabel(
-                          text: 'Book Now',
-                          fontFamily: 'Poppins',
-                          fontWeight: FontWeight.w600,
-                          fontSize: fontSizeCallout,
-                        ),
-                        onPressed: () {},
+    return Dialog(
+      backgroundColor: whitePrimary,
+      insetPadding: EdgeInsets.symmetric(horizontal: 14),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      child: SizedBox(
+        width: 342,
+        height: 182,
+        child: Stack(
+          children: [
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      //JEEPNEY & DRIVER PICTURE
+                      Stack(
+                        clipBehavior:
+                            Clip.none, // <-- This allows children to overflow
+                        children: [
+                          Image.asset(Assets.jeepneyImg),
+                          Positioned(
+                            bottom: -10, // <-- Negative value pushes it outside
+                            right: -10, // <-- Same here
+                            child: Image.asset(Assets.driverImg),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
-              ),
-
-              Positioned(
-                top: -4,
-                right: -3,
-                child: IconButton(
-                  icon: Image.asset(
-                    Assets.welcomeDialogCloseIcn,
-                    scale: 3,
-                    fit: BoxFit.fill,
+                      SizedBox(width: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          //DRIVER'S NAME
+                          CommonTextLabel(
+                            text: 'Kevin Nuqui',
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            fontSize: fontSizeTitleSmall,
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(Assets.starIcon),
+                              SizedBox(width: 8),
+                              //DRIVER'S RATE
+                              CommonTextLabel(
+                                text: '4.6',
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w500,
+                                fontSize: fontSizeCaptionMedium,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(Assets.clockIcon, scale: 3),
+                              SizedBox(width: 8),
+                              //DRIVER'S MINUTES AWAY
+                              CommonTextLabel(
+                                text: '2 minutes away ',
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w500,
+                                fontSize: fontSizeCaptionMedium,
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(Assets.waitingIcon, scale: 3),
+                              SizedBox(width: 8),
+                              //DRIVER'S SEATS & ROUTE
+                              CommonTextLabel(
+                                text: '2 seats available ~ Going to San Jose',
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w500,
+                                fontSize: fontSizeCaptionMedium,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  splashRadius: 20,
-                  onPressed: () => Navigator.of(context).pop(),
-                ),
+                  SizedBox(height: 30),
+                  SizedBox(
+                    width: double.infinity,
+                    //BUTTON ------------------------------
+                    child: CommonButton(
+                      height: 50,
+                      backgroundColor: greenPrimary,
+                      child: CommonTextLabel(
+                        text: 'Book Now',
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: fontSizeCallout,
+                      ),
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
               ),
-            ],
-          ),
+            ),
+
+            Positioned(
+              top: -4,
+              right: -3,
+              child: IconButton(
+                icon: Image.asset(
+                  Assets.welcomeDialogCloseIcn,
+                  scale: 3,
+                  fit: BoxFit.fill,
+                ),
+                padding: EdgeInsets.zero,
+                constraints: const BoxConstraints(),
+                splashRadius: 20,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ],
         ),
       ),
     );
