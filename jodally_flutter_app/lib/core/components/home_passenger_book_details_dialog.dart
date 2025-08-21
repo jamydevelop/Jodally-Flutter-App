@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jodally_flutter_app/core/components/common_button.dart';
 import 'package:jodally_flutter_app/core/components/common_text_label.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
@@ -95,6 +96,22 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                           ],
                         ),
                       ],
+                    ),
+                    SizedBox(height: 30),
+                    SizedBox(
+                      width: double.infinity,
+                      //BUTTON ------------------------------
+                      child: CommonButton(
+                        height: 50,
+                        backgroundColor: greenPrimary,
+                        child: CommonTextLabel(
+                          text: 'Book Now',
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.w600,
+                          fontSize: fontSizeCallout,
+                        ),
+                        onPressed: () {},
+                      ),
                     ),
                   ],
                 ),
