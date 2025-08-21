@@ -6,7 +6,9 @@ import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
 class HomePassengerBookDetailsDialog extends StatelessWidget {
-  const HomePassengerBookDetailsDialog({super.key});
+  final VoidCallback? onClose;
+
+  const HomePassengerBookDetailsDialog({super.key, this.onClose});
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +31,12 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                     children: [
                       //JEEPNEY & DRIVER PICTURE
                       Stack(
-                        clipBehavior:
-                            Clip.none, // <-- This allows children to overflow
+                        clipBehavior: Clip.none,
                         children: [
                           Image.asset(Assets.jeepneyImg),
                           Positioned(
-                            bottom: -10, // <-- Negative value pushes it outside
-                            right: -10, // <-- Same here
+                            bottom: -10,
+                            right: -10,
                             child: Image.asset(Assets.driverImg),
                           ),
                         ],
@@ -44,7 +45,6 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          //DRIVER'S NAME
                           CommonTextLabel(
                             text: 'Kevin Nuqui',
                             fontFamily: 'Poppins',
@@ -55,7 +55,6 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                             children: [
                               Image.asset(Assets.starIcon),
                               SizedBox(width: 8),
-                              //DRIVER'S RATE
                               CommonTextLabel(
                                 text: '4.6',
                                 fontFamily: 'Nunito',
@@ -68,7 +67,6 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                             children: [
                               Image.asset(Assets.clockIcon, scale: 3),
                               SizedBox(width: 8),
-                              //DRIVER'S MINUTES AWAY
                               CommonTextLabel(
                                 text: '2 minutes away ',
                                 fontFamily: 'Nunito',
@@ -81,7 +79,6 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                             children: [
                               Image.asset(Assets.waitingIcon, scale: 3),
                               SizedBox(width: 8),
-                              //DRIVER'S SEATS & ROUTE
                               CommonTextLabel(
                                 text: '2 seats available ~ Going to San Jose',
                                 fontFamily: 'Nunito',
@@ -97,7 +94,6 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                   SizedBox(height: 30),
                   SizedBox(
                     width: double.infinity,
-                    //BUTTON ------------------------------
                     child: CommonButton(
                       height: 50,
                       backgroundColor: greenPrimary,
@@ -126,7 +122,11 @@ class HomePassengerBookDetailsDialog extends StatelessWidget {
                 padding: EdgeInsets.zero,
                 constraints: const BoxConstraints(),
                 splashRadius: 20,
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () {
+                  if (onClose != null) {
+                    onClose!();
+                  }
+                },
               ),
             ),
           ],

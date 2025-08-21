@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jodally_flutter_app/core/components/home_passenger_book_details_dialog.dart';
+import 'package:jodally_flutter_app/core/components/custom_bottom_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       // theme: ThemeData(
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       // ),
-      home: HomePassengerBookDetailsDialog(),
+      home: CustomBottomNavigationBar(),
     );
   }
 }

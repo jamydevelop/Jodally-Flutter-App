@@ -24,9 +24,9 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   }
 
   final List<Widget> _pages = [
-    Center(child: HomePassengerPage()),
-    Center(child: ActivityPage()),
-    Center(child: ProfilePage()),
+    HomePassengerPage(),
+    ActivityPage(),
+    ProfilePage(),
   ];
 
   @override
@@ -37,7 +37,12 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
         statusBarColor: Colors.transparent,
       ),
       child: Scaffold(
-        body: _pages[_selectedIndex],
+        body: Stack(
+          children: [
+            _pages[_selectedIndex],
+            // We could overlay dialog-specific UI here if needed globally
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _selectedIndex,
           onTap: _navigateBottomBar,
@@ -64,7 +69,6 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
   }
 
   Widget _buildIcon(int index) {
-    // Choose filled or outline icon based on index
     String assetPath;
     switch (index) {
       case 0:
