@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 
 class HomePassengerWaitingDialog extends StatefulWidget {
@@ -27,7 +28,7 @@ class _HomePassengerWaitingDialogState
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: [],
+                children: [Image.asset(Assets.waitingImgIcon, scale: 3)],
               ),
             ),
           ],

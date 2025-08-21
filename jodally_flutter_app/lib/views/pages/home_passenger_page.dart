@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:jodally_flutter_app/core/components/home_passenger_book_details_dialog.dart';
+import 'package:jodally_flutter_app/core/components/home_passenger_dialogs/home_passenger_waiting_dialog.dart';
 import 'package:jodally_flutter_app/core/components/map_type_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
@@ -128,7 +128,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
             // Blur only behind dialog content
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-              child: Container(color: Colors.black.withOpacity(0.05)),
+              child: Container(color: Colors.black.withValues(alpha: 0.5)),
             ),
             Positioned(
               bottom: 10,
@@ -136,13 +136,14 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
               right: 20,
               child: Material(
                 color: Colors.transparent,
-                child: HomePassengerBookDetailsDialog(
-                  onClose: () {
-                    setState(() {
-                      _showDialog = false;
-                    });
-                  },
-                ),
+                child: HomePassengerWaitingDialog(),
+                // child: HomePassengerBookDetailsDialog(
+                //   onClose: () {
+                //     setState(() {
+                //       _showDialog = false;
+                //     });
+                //   },
+                // ),
               ),
             ),
           ],

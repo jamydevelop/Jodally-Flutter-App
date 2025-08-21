@@ -36,4 +36,5 @@ class Assets {
   static const starIcon = '$iconsPath/star_icon.png';
   static const clockIcon = '$iconsPath/clock_icon.png';
   static const waitingIcon = '$iconsPath/waiting_icon.png';
+  static const waitingImgIcon = "$imagesPath/waiting_img_icon.png";
 }
