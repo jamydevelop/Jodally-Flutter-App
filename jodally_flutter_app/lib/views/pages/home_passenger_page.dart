@@ -164,7 +164,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
-            _showDialog = true;
+            _showDialog = !_showDialog;
           });
         },
         child: Icon(Icons.directions_car),
