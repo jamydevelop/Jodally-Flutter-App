@@ -22,17 +22,99 @@ class HomePassengerApprovedCancel extends StatelessWidget {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 10),
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(Assets.waitingImgIcon, scale: 4),
-                  CommonTextLabel(
-                    text: 'Driver is on the way',
-                    fontFamily: 'Poppins',
-                    fontWeight: FontWeight.w600,
-                    fontSize: fontSizeTitleSmall,
-                    color: blackPrimary,
+                  //First Row
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      CommonTextLabel(
+                        text: 'Driver is on the way',
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        fontSize: fontSizeTitleSmall,
+                        color: blackPrimary,
+                      ),
+                      Image.asset(Assets.infoCircleIcon),
+                    ],
                   ),
+                  SizedBox(height: 10),
+                  //Second Row
+                  Row(
+                    children: [
+                      // I M A G E - C O N T A I N E R
+                      Container(
+                        height: 46,
+                        width: 46,
+                        decoration: BoxDecoration(
+                          color: greySecondary,
+                          shape: BoxShape.circle,
+                        ),
+                        child: ClipOval(
+                          child: Image.asset(
+                            Assets.driverImg,
+                            fit: BoxFit.cover,
+                            height: 46,
+                            width: 46,
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(width: 8),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CommonTextLabel(
+                            text: 'Kevin  Nuqui',
+                            fontFamily: 'Poppins',
+                            fontWeight: FontWeight.w500,
+                            fontSize: fontSizeTitleSmall,
+                            color: blackPrimary,
+                          ),
+                          Row(
+                            children: [
+                              Image.asset(Assets.clockIcon, scale: 3),
+                              SizedBox(width: 4),
+                              CommonTextLabel(
+                                text: '2 minutes away',
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w400,
+                                fontSize: fontSizeCaptionMedium,
+                                color: greyPrimary,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      // SizedBox(width: double.infinity),
+                      Spacer(),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(Assets.starIcon),
+                              CommonTextLabel(
+                                text: '4.6',
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w500,
+                                fontSize: fontSizeCaptionMedium,
+                                color: greenSecondary,
+                              ),
+                            ],
+                          ),
+                          CommonTextLabel(
+                            text: '500 meters',
+                            fontFamily: 'Nunito',
+                            fontWeight: FontWeight.w400,
+                            fontSize: fontSizeCaptionMedium,
+                            color: greyPrimary,
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  Spacer(),
                   GlobalCancelButton(onPressed: () {}),
                 ],
               ),
