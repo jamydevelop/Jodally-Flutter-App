@@ -5,8 +5,8 @@ import 'package:jodally_flutter_app/core/resources/assets.dart';
 import 'package:jodally_flutter_app/core/resources/colors.dart';
 import 'package:jodally_flutter_app/core/resources/dimensions.dart';
 
-class HomePassengerApprovedCancel extends StatelessWidget {
-  const HomePassengerApprovedCancel({super.key});
+class HomePassengerApprovedCancelDialog extends StatelessWidget {
+  const HomePassengerApprovedCancelDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
