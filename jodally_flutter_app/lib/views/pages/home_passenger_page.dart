@@ -1,11 +1,11 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jodally_flutter_app/core/components/google_map_buttons.dart';
+import 'package:jodally_flutter_app/core/components/home_passenger_dialogs/home_passenger_approved_end_dialog.dart';
 import 'package:jodally_flutter_app/core/components/map_type_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
-import 'package:jodally_flutter_app/core/resources/colors.dart';
 
 class HomePassengerPage extends StatefulWidget {
   const HomePassengerPage({super.key});
@@ -16,11 +16,10 @@ class HomePassengerPage extends StatefulWidget {
 
 class _HomePassengerPageState extends State<HomePassengerPage> {
   LatLng? _currentPosition;
-
-  // Initialize with default MapType
   MapType _currentMapType = MapType.normal;
-
   late GoogleMapController _mapController;
+
+  bool _showDialog = false;
 
   @override
   void initState() {
@@ -29,41 +28,25 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
   }
 
   void _determinePosition() async {
-    bool serviceEnabled;
-    LocationPermission permission;
+    bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) return;
 
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await Geolocator.checkPermission();
+    LocationPermission permission = await Geolocator.checkPermission();
     if (permission == LocationPermission.denied) {
       permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
+      if (permission == LocationPermission.denied) return;
     }
-
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-        'Location permissions are permanently denied, we cannot request permissions.',
-      );
-    }
-
-    final locationSettings = LocationSettings(
-      accuracy: LocationAccuracy.high,
-      distanceFilter: 100,
-    );
+    if (permission == LocationPermission.deniedForever) return;
 
     Position position = await Geolocator.getCurrentPosition(
-      locationSettings: locationSettings,
+      locationSettings: LocationSettings(
+        accuracy: LocationAccuracy.high,
+        distanceFilter: 100,
+      ),
     );
 
-    final latLng = LatLng(position.latitude, position.longitude);
-
     setState(() {
-      _currentPosition = latLng;
+      _currentPosition = LatLng(position.latitude, position.longitude);
     });
 
     _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
@@ -71,7 +54,6 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
 
   void _onMapController(GoogleMapController controller) {
     _mapController = controller;
-
     if (_currentPosition != null) {
       _mapController.animateCamera(CameraUpdate.newLatLng(_currentPosition!));
     }
@@ -96,7 +78,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
             myLocationButtonEnabled: false,
           ),
 
-          // Top buttons
+          // Top Buttons
           Positioned(
             top: MediaQuery.of(context).padding.top + 16,
             left: 16,
@@ -104,97 +86,90 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Map Type Button
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      showGeneralDialog(
-                        context: context,
-                        barrierDismissible: true,
-                        barrierLabel: 'MapTypeDialog',
-                        barrierColor: Colors.transparent,
-                        transitionDuration: const Duration(milliseconds: 200),
-                        pageBuilder: (context, animation, secondaryAnimation) {
-                          return BackdropFilter(
-                            filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                            child: Center(
-                              child: MapTypeDialog(
-                                selectedMapType: _currentMapType,
-                                onMapTypeSelected: (MapType selectedType) {
-                                  setState(() {
-                                    _currentMapType = selectedType;
-                                  });
-                                },
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    },
-                    padding: EdgeInsets.zero,
-                    iconSize: 20,
-                    icon: Image.asset(
-                      Assets.up_arrows_icon,
-                      scale: 4,
-                      color: greenPrimary,
-                    ),
-                  ),
-                ),
-
-                // Recenter GPS Button
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black26,
-                        blurRadius: 4,
-                        offset: Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: IconButton(
-                    onPressed: () {
-                      if (_currentPosition != null) {
-                        _mapController.animateCamera(
-                          CameraUpdate.newCameraPosition(
-                            CameraPosition(
-                              target: _currentPosition!,
-                              zoom: 17.0,
+                GoogleMapButtons(
+                  asset: Assets.up_arrows_icon,
+                  onPressed: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: 'MapTypeDialog',
+                      barrierColor: Colors.transparent,
+                      transitionDuration: const Duration(milliseconds: 200),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                          child: Center(
+                            child: MapTypeDialog(
+                              selectedMapType: _currentMapType,
+                              onMapTypeSelected: (selectedType) {
+                                setState(() {
+                                  _currentMapType = selectedType;
+                                });
+                              },
                             ),
                           ),
                         );
-                      }
-                    },
-                    padding: EdgeInsets.zero,
-                    iconSize: 20,
-                    icon: Image.asset(
-                      Assets.gpsIcon,
-                      scale: 4,
-                      color: greenPrimary,
-                    ),
-                  ),
+                      },
+                    );
+                  },
+                ),
+                GoogleMapButtons(
+                  asset: Assets.gpsIcon,
+                  onPressed: () {
+                    if (_currentPosition != null) {
+                      _mapController.animateCamera(
+                        CameraUpdate.newCameraPosition(
+                          CameraPosition(target: _currentPosition!, zoom: 17.0),
+                        ),
+                      );
+                    }
+                  },
                 ),
               ],
             ),
           ),
+
+          // Dialog with blur and dismiss on tap outside
+          if (_showDialog)
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                setState(() {
+                  _showDialog = false;
+                });
+              },
+              child: Stack(
+                children: [
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                    child: SizedBox.expand(),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    left: 20,
+                    right: 20,
+                    child: GestureDetector(
+                      onTap: () {}, // Prevent tap inside from closing
+                      child: Material(
+                        color: Colors.transparent,
+                        child: HomePassengerApprovedEndDialog(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
         ],
+      ),
+
+      //T E M P O R A R Y  B U T T O N - To show the dialogs
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _showDialog = !_showDialog;
+          });
+        },
+        child: Icon(Icons.directions_car),
       ),
     );
   }

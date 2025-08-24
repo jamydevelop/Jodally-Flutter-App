@@ -6,6 +6,8 @@ class Assets {
   static const welcomePageJeepneyImg = '$imagesPath/jeepney_welcome_img.png';
   static const sampleProfileImg = "$imagesPath/sampleProfileImg.png";
   static const varificationImg = "$imagesPath/verification_img.png";
+  static const jeepneyImg = "$imagesPath/jeep_img.png";
+  static const driverImg = "$imagesPath/driver_img.png";
 
   // I C O N S
   static const welcomeDialogCloseIcn = '$iconsPath/close_circle_icon.png';
@@ -28,4 +30,12 @@ class Assets {
   // ---- Google Map Screen Icons
   static const gpsIcon = '$iconsPath/gps_icon.png';
   static const up_arrows_icon = '$iconsPath/up_arrows_icon.png';
+
+  // P A S S E N G E R  H O M E  P A G E
+  // -- passenger book details dialog
+  static const starIcon = '$iconsPath/star_icon.png';
+  static const clockIcon = '$iconsPath/clock_icon.png';
+  static const waitingIcon = '$iconsPath/waiting_icon.png';
+  static const waitingImgIcon = "$imagesPath/waiting_img_icon.png";
+  static const infoCircleIcon = '$iconsPath/info_circle_icon.png';
 }

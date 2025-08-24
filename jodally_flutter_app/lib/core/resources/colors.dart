@@ -8,6 +8,9 @@ const Color blackPrimary = Color(0xFF020202); //#020202
 const Color blackSecondary = Color(0xFF292D32); //#292D32
 const Color blackTertiary = Color(0xFF303030); //#303030
 
+//Red
+const Color redPrimary = Color(0xFFC61616); //#C61616
+
 //Light Grey
 const Color lightGreyPrimary = Color(0xFFF4F4F4); //#F4F4F4
 const Color lightGreySecondary = Color(0xFFDCDCDC); //#DCDCDC
