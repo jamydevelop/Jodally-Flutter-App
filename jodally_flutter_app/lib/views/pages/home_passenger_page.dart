@@ -4,7 +4,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:jodally_flutter_app/core/components/google_map_buttons.dart';
 import 'package:jodally_flutter_app/core/components/home_passenger_dialogs/home_passenger_approved_cancel.dart';
-import 'package:jodally_flutter_app/core/components/home_passenger_dialogs/home_passenger_book_details_dialog.dart';
 import 'package:jodally_flutter_app/core/components/map_type_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
 
