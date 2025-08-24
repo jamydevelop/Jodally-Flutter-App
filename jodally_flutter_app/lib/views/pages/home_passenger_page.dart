@@ -2,10 +2,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:jodally_flutter_app/core/components/google_map_buttons.dart';
 import 'package:jodally_flutter_app/core/components/home_passenger_dialogs/home_passenger_waiting_dialog.dart';
 import 'package:jodally_flutter_app/core/components/map_type_dialog.dart';
 import 'package:jodally_flutter_app/core/resources/assets.dart';
-import 'package:jodally_flutter_app/core/resources/colors.dart';
 
 class HomePassengerPage extends StatefulWidget {
   const HomePassengerPage({super.key});
@@ -19,7 +19,7 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
   MapType _currentMapType = MapType.normal;
   late GoogleMapController _mapController;
 
-  bool _showDialog = false; // <-- Track dialog visibility
+  bool _showDialog = false;
 
   @override
   void initState() {
@@ -86,67 +86,79 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                _buildIconButton(Assets.up_arrows_icon, () {
-                  showGeneralDialog(
-                    context: context,
-                    barrierDismissible: true,
-                    barrierLabel: 'MapTypeDialog',
-                    barrierColor: Colors.transparent,
-                    transitionDuration: const Duration(milliseconds: 200),
-                    pageBuilder: (context, animation, secondaryAnimation) {
-                      return BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-                        child: Center(
-                          child: MapTypeDialog(
-                            selectedMapType: _currentMapType,
-                            onMapTypeSelected: (selectedType) {
-                              setState(() {
-                                _currentMapType = selectedType;
-                              });
-                            },
+                GoogleMapButtons(
+                  asset: Assets.up_arrows_icon,
+                  onPressed: () {
+                    showGeneralDialog(
+                      context: context,
+                      barrierDismissible: true,
+                      barrierLabel: 'MapTypeDialog',
+                      barrierColor: Colors.transparent,
+                      transitionDuration: const Duration(milliseconds: 200),
+                      pageBuilder: (context, animation, secondaryAnimation) {
+                        return BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                          child: Center(
+                            child: MapTypeDialog(
+                              selectedMapType: _currentMapType,
+                              onMapTypeSelected: (selectedType) {
+                                setState(() {
+                                  _currentMapType = selectedType;
+                                });
+                              },
+                            ),
                           ),
+                        );
+                      },
+                    );
+                  },
+                ),
+                GoogleMapButtons(
+                  asset: Assets.gpsIcon,
+                  onPressed: () {
+                    if (_currentPosition != null) {
+                      _mapController.animateCamera(
+                        CameraUpdate.newCameraPosition(
+                          CameraPosition(target: _currentPosition!, zoom: 17.0),
                         ),
                       );
-                    },
-                  );
-                }),
-                _buildIconButton(Assets.gpsIcon, () {
-                  if (_currentPosition != null) {
-                    _mapController.animateCamera(
-                      CameraUpdate.newCameraPosition(
-                        CameraPosition(target: _currentPosition!, zoom: 17.0),
-                      ),
-                    );
-                  }
-                }),
+                    }
+                  },
+                ),
               ],
             ),
           ),
 
-          // Dialog with blur behind (but NOT bottom nav)
-          if (_showDialog) ...[
-            // Blur only behind dialog content
-            BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-              child: Container(color: Colors.black.withValues(alpha: 0.5)),
-            ),
-            Positioned(
-              bottom: 10,
-              left: 20,
-              right: 20,
-              child: Material(
-                color: Colors.transparent,
-                child: HomePassengerWaitingDialog(),
-                // child: HomePassengerBookDetailsDialog(
-                //   onClose: () {
-                //     setState(() {
-                //       _showDialog = false;
-                //     });
-                //   },
-                // ),
+          // Dialog with blur and dismiss on tap outside
+          if (_showDialog)
+            GestureDetector(
+              behavior: HitTestBehavior.translucent,
+              onTap: () {
+                setState(() {
+                  _showDialog = false;
+                });
+              },
+              child: Stack(
+                children: [
+                  BackdropFilter(
+                    filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+                    child: SizedBox.expand(),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    left: 20,
+                    right: 20,
+                    child: GestureDetector(
+                      onTap: () {}, // Prevent tap inside from closing
+                      child: Material(
+                        color: Colors.transparent,
+                        child: HomePassengerWaitingDialog(),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -156,26 +168,6 @@ class _HomePassengerPageState extends State<HomePassengerPage> {
           });
         },
         child: Icon(Icons.directions_car),
-      ),
-    );
-  }
-
-  Widget _buildIconButton(String asset, VoidCallback onPressed) {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
-        boxShadow: [
-          BoxShadow(color: Colors.black26, blurRadius: 4, offset: Offset(0, 2)),
-        ],
-      ),
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Image.asset(asset, scale: 4, color: greenPrimary),
-        padding: EdgeInsets.zero,
-        iconSize: 20,
       ),
     );
   }
